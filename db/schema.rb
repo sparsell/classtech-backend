@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_190801) do
+ActiveRecord::Schema.define(version: 2021_10_06_151000) do
 
   create_table "grades", force: :cascade do |t|
     t.string "grade_name"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 2021_10_05_190801) do
     t.boolean "has_other_device"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "school_id"
+    t.integer "grade_id"
+    t.index ["grade_id"], name: "index_students_on_grade_id"
+    t.index ["school_id"], name: "index_students_on_school_id"
   end
 
 end
