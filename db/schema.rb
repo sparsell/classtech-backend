@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_151000) do
+ActiveRecord::Schema.define(version: 2021_10_06_191915) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "grades", force: :cascade do |t|
     t.string "grade_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "school_grades", force: :cascade do |t|
+    t.integer "school_id"
+    t.integer "grade_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -30,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_10_06_151000) do
     t.boolean "has_other_device"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "school_id"
-    t.integer "grade_id"
+    t.bigint "school_id"
+    t.bigint "grade_id"
     t.index ["grade_id"], name: "index_students_on_grade_id"
     t.index ["school_id"], name: "index_students_on_school_id"
   end
