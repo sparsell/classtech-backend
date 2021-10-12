@@ -30,11 +30,6 @@ before_action :set_student
 
     private
 
-  
-        def set_school
-            @school = School.find(params[:school_id])
-        end
-
         def set_student
             @student = Student.find(params[:student_id])
         end
