@@ -1,6 +1,6 @@
 class Api::V1::StudentsController < ApplicaitonController 
 
-    before_actio :set_school
+    before_action :set_school, :set_grade
 
     def index 
         #   api/v1/schools/1/grades/1/students
@@ -9,7 +9,9 @@ class Api::V1::StudentsController < ApplicaitonController
     end
     
     def create
-        @student = @school.student.new(student_params)
+        @student = @school.Student.new(student_params)
+        # @student.grade_id = params[:grade_id]
+        # binding.pry
         if @student.save 
             render json: @student
             alert("Successfully created a new student.")
@@ -34,6 +36,10 @@ class Api::V1::StudentsController < ApplicaitonController
   
         def set_school
             @school = School.find(params[:school_id])
+        end
+
+        def set_grade
+            @grade = Grade.find(params[:grade_id])
         end
 
         def student_params
