@@ -1,4 +1,4 @@
-class Api::V1::StudentsController < ApplicaitonController 
+class Api::V1::StudentsController < ApplicationController 
 
     before_action :set_school, :set_grade
 
@@ -16,7 +16,9 @@ class Api::V1::StudentsController < ApplicaitonController
             render json: @student
             alert("Successfully created a new student.")
         else
-            render json {:error "Sorry, there was an error."}
+            # render json {:error `Sorry, there was an error.`}
+            console.log("there was an error")
+        end
     end
 
     def show
