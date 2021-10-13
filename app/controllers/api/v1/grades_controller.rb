@@ -7,6 +7,7 @@ class Api::V1::GradesController < ApplicationController
 
     def show
         @grade = Grade.find(params[:id])
+        render json: @grade
     end
 
     private
