@@ -9,21 +9,18 @@ class Api::V1::StudentsController < ApplicationController
     end
     
     def create
-        @student = @school.Student.new(student_params)
-        # @student.grade_id = params[:grade_id]
-        # binding.pry
+        @student = @school.students.new(student_params)
         if @student.save 
+            @grade.students << @student
             render json: @student
-            alert("Successfully created a new student.")
+            console.log("Successfully created a new student.")
         else
-            # render json {:error `Sorry, there was an error.`}
-            console.log("there was an error")
+            # render json: {:error 'Sorry, there was an error'}
+            console.log("There was an error.")
         end
     end
 
     def show
-        # @student = @school.student.find_by(id: params[:id]) or:
-
         @student = Student.find(params[:id])
         render json: @student
     end
