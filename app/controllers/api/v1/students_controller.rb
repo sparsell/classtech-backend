@@ -10,13 +10,13 @@ class Api::V1::StudentsController < ApplicationController
     
     def create
         @student = @school.students.new(student_params)
+        binding.pry
         if @student.save 
             @grade.students << @student
             render json: @student
             console.log("Successfully created a new student.")
         else
-            # render json: {:error 'Sorry, there was an error'}
-            console.log("There was an error.")
+            render json: {error: 'Sorry, there was an error'}
         end
     end
 
@@ -31,7 +31,6 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     private
-
   
         def set_school
             @school = School.find(params[:school_id])
@@ -42,7 +41,8 @@ class Api::V1::StudentsController < ApplicationController
         end
 
         def student_params
-            params.require(:student).permit(:name, :has_phone, :has_other_device, :school_id, :grade_id)
+            params.require(:student).permit(:name, :has_phone, :has_other_device, :screen_time, :school_id, :grade_id)
+        
         end
 
 

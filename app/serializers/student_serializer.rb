@@ -1,7 +1,6 @@
 class StudentSerializer
     include JSONAPI::Serializer
 
-    attributes :id, :name, :grade, :school
-    has_many :comments 
+    attributes :id, :name, :has_phone, :has_other_device, :screen_time, :grade, :school 
     
 end
