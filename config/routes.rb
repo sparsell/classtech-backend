@@ -4,9 +4,7 @@ Rails.application.routes.draw do
         namespace :v1 do 
             resources :schools do
                 resources :grades do
-                    resources :students do
-                          resources :comments
-                    end
+                    resources :students
                 end
             end
         end 
