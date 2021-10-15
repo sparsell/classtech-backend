@@ -1,18 +1,15 @@
 class Api::V1::StudentsController < ApplicationController 
 
-    before_action :set_school, :set_grade
+    before_action :set_grade
 
     def index 
-        #   api/v1/schools/1/grades/1/students
         @students = @school.students
         render json: @students
     end
     
     def create
-        @student = @school.students.new(student_params)
-        binding.pry
+        @student = @grade.students.new(student_params)
         if @student.save 
-            @grade.students << @student
             render json: @student
             console.log("Successfully created a new student.")
         else
@@ -31,17 +28,13 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     private
-  
-        def set_school
-            @school = School.find(params[:school_id])
-        end
 
         def set_grade
             @grade = Grade.find(params[:grade_id])
         end
 
         def student_params
-            params.require(:student).permit(:name, :has_phone, :has_other_device, :screen_time, :school_id, :grade_id)
+            params.require(:student).permit(:name, :has_phone, :has_other_device, :screen_time, :school, :grade_id)
         
         end
 
