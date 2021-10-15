@@ -1,5 +1,5 @@
 class AddSchoolToStudent < ActiveRecord::Migration[6.0]
   def change
-        add_reference :students, :school
+    add_column :students, :school, :string
   end
 end

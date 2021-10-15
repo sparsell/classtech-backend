@@ -1,5 +1,5 @@
 class GradeSerializer
   include JSONAPI::Serializer
-  attributes :grade_name, :school_id
+  attributes :grade_name
   has_many :students
 end
