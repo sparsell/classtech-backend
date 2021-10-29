@@ -1,7 +1,6 @@
 class Grade < ApplicationRecord
     has_many :students
-
-    validates :grade_name, presence: true
+    validates :grade_id, presence: true
 
 
 end
