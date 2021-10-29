@@ -5,6 +5,8 @@ Rails.application.routes.draw do
             resources :grades do
                 resources :students
             end
+            resources :students, only: [:index, :create] do
+            end
         end 
     end
    
