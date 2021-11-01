@@ -32,7 +32,12 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     def set_grade
-        @grade = Grade.find_by(grade_name: params[:student][:grade_name])
+        # pry
+        if params[:grade_id]
+            @grade = Grade.find_by(id: params[:grade_id])
+            else
+            @grade = Grade.find_by(grade_name: params[:student][:grade_name])
+        end
     end
 
     private
