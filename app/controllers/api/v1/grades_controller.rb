@@ -2,12 +2,12 @@ class Api::V1::GradesController < ApplicationController
 
     def index 
         @grades = Grade.all 
-        render json: @grades, each_serializer: GradeSerializer
+        render json: @grades, each_serializer: GradeSerializer, include: ["students"]
     end
 
     def show
         @grade = Grade.find(params[:id])
-        render json: @grade, each_serializer: GradeSerializer
+        render json: @grade, each_serializer: GradeSerializer, include: ["students"]
     end
 
     private
