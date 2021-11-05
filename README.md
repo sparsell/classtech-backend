@@ -1,4 +1,4 @@
-This is the backend repo for <a href="https://github.com/sparsell/spendless-frontend">Spendless</a>. Please find all installation instructions in that readme. 
+This is the backend repo for <a href="https://github.com/sparsell/classtech-frontend">Spendless</a>. Please find all installation instructions in that readme. 
 
 # README
 
