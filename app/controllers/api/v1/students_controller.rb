@@ -9,10 +9,7 @@ class Api::V1::StudentsController < ApplicationController
     end
     
     def create
-        # pry
-        # @student = @grade.students.new(student_params)
         @student = Student.new(student_params)
-        # binding.pry
         if @student.save 
             render json: StudentSerializer.new(@student)
         else
