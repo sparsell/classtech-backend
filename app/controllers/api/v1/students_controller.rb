@@ -1,6 +1,6 @@
 class Api::V1::StudentsController < ApplicationController 
 
-    before_action :set_grade
+    before_action :set_grade, only: [:create]
 
     def index 
         @students = @grade.students
@@ -10,6 +10,7 @@ class Api::V1::StudentsController < ApplicationController
     
     def create
         @student = Student.new(student_params)
+        # binding.pry
         if @student.save 
             render json: StudentSerializer.new(@student)
         else
