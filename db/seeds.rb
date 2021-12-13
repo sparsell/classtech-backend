@@ -5,7 +5,6 @@
 # leila = Child.create(name: "Leila", user_id: aya.id, grade_id: five.id)
 #     Device.create(device_type: "iPad")
 grade2 = Grade.create(grade_name: "2nd Grade")
-grade2 = Grade.create(grade_name: "2nd Grade")
 grade3 = Grade.create(grade_name: "3rd Grade")
 grade4 = Grade.create(grade_name: "4th Grade")
 grade5 = Grade.create(grade_name: "5th Grade")
